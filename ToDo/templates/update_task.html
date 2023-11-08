@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load myfilters %}
+{% block title %}
+
+{% endblock %}
+
+{% block css %}
+<style>
+.main-area{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="main-area">
+    <form method="POST" action=""> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Update" />
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+var statusList = document.getElementById("update-task-status-list");
+statusList.value = "{{task.fields.status}}"
+</script>
+{% endblock %}
